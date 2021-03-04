@@ -8,12 +8,13 @@ from matplotlib import pyplot as plt
 from torchvision.transforms import transforms
 
 from Utils import MyDataset, iou
+
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
 model = models.resnet50(pretrained=True)
 for parmaeter in model.parameters():
     parmaeter.requires_grad = False
-model.fc = torch.nn.Sequential(torch.nn.Linear(2048, 8))
+model.fc = torch.nn.Sequential(torch.nn.Linear(2048, 4))
 
 BatchSize = 32
 Device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -22,7 +23,8 @@ basePath = "I:/ContainerNumber/"
 
 trainData = MyDataset(basePath)
 trainLoader = DataLoader(trainData, BatchSize, shuffle=True)
-optimizer = optim.Adam(model.parameters())
+optimizer = optim.SGD(model.parameters(), 1, 0.8)
+
 
 def train(model, optimizer, trainLoader, epoch, Device):
     model.eval()
@@ -32,7 +34,11 @@ def train(model, optimizer, trainLoader, epoch, Device):
         optimizer.zero_grad()
         data = data.permute(0, 3, 1, 2)
         y = model(data)
-        print("debug")
+        cost = (1 - iou(y, label)).sum()
+        cost.backward()
+        optimizer.step()
+
+        print(cost)
 
 
 def test():

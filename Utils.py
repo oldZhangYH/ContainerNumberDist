@@ -1,6 +1,5 @@
 import os
 import cv2
-import numpy
 import torch
 from torch.utils.data import Dataset
 
@@ -8,10 +7,10 @@ from torch.utils.data import Dataset
 class MyDataset(Dataset):
     def __init__(self, datapath):
         self.datapath = datapath
-        img = os.listdir(self.datapath + "img/")  # 目录里的所有文件
+        img = os.listdir(self.datapath + "reSizeImg/")  # 目录里的所有文件
         df = []
         for i in img:
-            df.append(datapath + "img/" + i)
+            df.append(datapath + "reSizeImg/" + i)
         self.df = df
         # labels = open(self.datapath + "label/label.txt")
         coordinates = open(self.datapath + "label/coordinate.txt")
@@ -40,7 +39,7 @@ class MyDataset(Dataset):
 
     def __getitem__(self, idx):
         img = cv2.imread(self.df[idx])
-        img = cv2.resize(img, (450, 800))
+        # img = cv2.resize(img, (450, 800))
         img = torch.Tensor(img)
         label = self.label[idx]
         return img, label
@@ -72,3 +71,15 @@ def iou(box1, box2):
     iou = inter_area / (b1_area + b2_area - inter_area)
 
     return iou
+
+
+def reSize(inPath, outPath):
+    imgList = os.listdir(inPath)
+    for i in imgList:
+        img = cv2.imread(inPath + i)
+        img = cv2.resize(img, (450, 800))
+        cv2.imwrite(outPath + i, img)
+    print("debug")
+
+
+# reSize("I:/ContainerNumber/img/", "I:/ContainerNumber/reSizeImg/")
