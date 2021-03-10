@@ -13,10 +13,14 @@ os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
 model = models.resnet50(pretrained=True)
 for parmaeter in model.parameters():
-    parmaeter.requires_grad = False
-model.fc = torch.nn.Sequential(torch.nn.Linear(2048, 4))
+    parmaeter.requires_grad = True
+model.fc = torch.nn.Sequential(torch.nn.Linear(2048, 512),
+                               torch.nn.Linear(512, 64),
+                               torch.nn.Linear(64, 16),
+                               torch.nn.ReLU()
+                               )
 
-BatchSize = 32
+BatchSize = 4
 Device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 Epochs = 5
 basePath = "I:/ContainerNumber/"
@@ -29,15 +33,16 @@ optimizer = optim.SGD(model.parameters(), 1, 0.8)
 def train(model, optimizer, trainLoader, epoch, Device):
     model.eval()
     model.to(Device)
-    for (data, label) in trainLoader:
-        data, label = data.to(Device), label.to(Device)
+    for (data, l, s) in trainLoader:
+        data, l, s = data.to(Device), l.to(Device), s.to(Device)
         optimizer.zero_grad()
         data = data.permute(0, 3, 1, 2)
         y = model(data)
-        cost = (1 - iou(y, label)).sum()
+        costL = (1 - iou(y, l)).sum() / BatchSize
+        costS = (1 - iou(y, l)).sum() / BatchSize
+        cost = costS + costL
         cost.backward()
         optimizer.step()
-
         print(cost)
 
 
