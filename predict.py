@@ -105,31 +105,38 @@ class Pytorch_model:
         return preds, boxes_list, t
 
 
+def drawImg(imgPath, savePath=None):
+    """
+    绘制预测图片并保存(默认不存)
+    :param imgPath: 图片路径
+    :param savePath: 保存路经
+    """
+    mask, boxes_list, t = model.predict(imgPath)
+    show_img(mask)
+    if savePath:
+        maskPath = savePath + imgPath[imgPath.rfind("/") + 1:-4]+"_mask.jpg"
+        plt.savefig(maskPath,dpi=300)
+    img = draw_bbox(cv2.imread(imgPath)[:, :, ::-1], boxes_list)
+    show_img(img, color=True)
+    if savePath:
+        predPath = savePath + imgPath[imgPath.rfind("/") + 1:-4]+"_pred.jpg"
+        plt.savefig(predPath,dpi=300)
+    plt.show()
+
+
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
     from utils.util import show_img, draw_bbox
-
-    # os.environ['CUDA_VISIBLE_DEVICES'] = str('0')
-
     parser = argparse.ArgumentParser(description='Hyperparams')
-    parser.add_argument('--model', help='model file path', default="output/PAN_resnet18_FPEM_FFM/checkpoint"
-                                                                   "/PANNet_latest.pth", type=str)
-    parser.add_argument('--imgFiles', help="img folder path", type=str, default="/media/oldzhang/Data&Model&Course"
-                                                                                "/data/ContainerNumber/test/img/")
+    parser.add_argument('--model', help='model file path', default=None, type=str)
+    parser.add_argument('--imgFiles', help="img folder path", type=str, default=None)
     parser.add_argument('--img', help='img file path', type=str, default=None)
+    parser.add_argument("--save", help="save path", type=str, default=None)
     args = parser.parse_args()
     model = Pytorch_model(args.model, gpu_id=0)
     if args.imgFiles:
-        imgs=sorted(os.listdir(args.imgFiles))
+        imgs = sorted(os.listdir(args.imgFiles))
         for img in imgs:
-            preds, boxes_list, t = model.predict(args.imgFiles+img)
-            show_img(preds)
-            img = draw_bbox(cv2.imread(args.imgFiles+img)[:, :, ::-1], boxes_list)
-            show_img(img, color=True)
-            plt.show()
-    else:
-        preds, boxes_list, t = model.predict(args.img)
-        show_img(preds)
-        img = draw_bbox(cv2.imread(args.img)[:, :, ::-1], boxes_list)
-        show_img(img, color=True)
-        plt.show()
+            drawImg(args.imgFiles + img, args.save)
+    if args.img:
+        drawImg(args.img, args.save)
