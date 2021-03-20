@@ -3,6 +3,6 @@
 现阶段只完成编号的检测，下阶段开始进行识别
 # sample
 <P>
-   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/master/samples/PCIU8567074_mask.jpg" width="300" height="400" alt="显示这些字说明你网不好，你可能需要一个梯子"/>
-   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/master/samples/PCIU8567074_pred.jpg" width="300" height="400" alt="显示这些字说明你网不好，你可能需要一个梯子"/>
+   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/master/samples/mask.jpg" width="400" height="400" alt="显示这些字说明你网不好，你可能需要一个梯子"/>
+   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/master/samples/pred.jpg" width="400" height="400" alt="显示这些字说明你网不好，你可能需要一个梯子"/>
  </p>
