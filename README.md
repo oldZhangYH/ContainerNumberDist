@@ -9,4 +9,6 @@
  
 # Predict  
 [predict.py](https://github.com/kekekahuatian/ContainerNumberDist/blob/master/predict.py)  
+可以检测单张图片，也可以检测文件夹中的图片  
+修改 **img** or **imgPath** 来检测
 
