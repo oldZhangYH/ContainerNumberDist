@@ -13,8 +13,8 @@
 `python predict.py --model path/to/model --imgFiles or img path/to/img --save path/to/save  
 `
 # Todo
-<input type="checkbox" disabled=""  checked=""> 文字检测
+-[x] 文字检测
 # Reference
 https://github.com/WenmuZhou/PAN.pytorch  
 https://github.com/whai362/PSENet
-# 请给reference那两个项目star！
+# 请给reference的那两个项目star！
