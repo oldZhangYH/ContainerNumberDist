@@ -7,9 +7,9 @@
  </p>  
  
 # Predict  
-[predict.py](https://github.com/kekekahuatian/ContainerNumberDist/blob/master/predict.py)  
-1. 可以检测单张图片，也可以检测文件夹中的图片  
-2. 修改 `img` or `imgFiles` 来检测  
+
+1. [predict.py](https://github.com/kekekahuatian/ContainerNumberDist/blob/master/predict.py)可以检测单张图片，也可以检测文件夹中的图片  
+2. 修改 `img` or `imgFiles` 来进行检测  
 `python predict.py --model path/to/model --imgFiles or img path/to/img --save path/to/save  
 `
 # Todo  
