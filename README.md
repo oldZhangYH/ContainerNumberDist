@@ -3,6 +3,6 @@
 现阶段只完成编号的检测，下阶段开始进行识别
 # sample
 <P>
-   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/master/samples/mask.png" width="300" height="400" alt=""/>
-   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/master/samples/pred.png" width="300" height="400" alt=""/>
+   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/master/samples/mask.png" width="450" height="800" alt="网不好或者图没了"/>
+   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/master/samples/pred.png" width="450" height="800" alt="网不好或者图没了"/>
  </p>
