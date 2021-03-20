@@ -13,8 +13,8 @@
 `python predict.py --model path/to/model --imgFiles or img path/to/img --save path/to/save  
 `
 # Todo  
-<input type="checkbox" disabled="true" checked="true">  
--[x] sada  
+<input type="checkbox" disabled="true" checked="true">|文字检测  
+* [x] checked  
 # Reference
 https://github.com/WenmuZhou/PAN.pytorch  
 https://github.com/whai362/PSENet
