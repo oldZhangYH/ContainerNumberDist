@@ -13,7 +13,7 @@
 `python predict.py --model path/to/model --imgFiles or img path/to/img --save path/to/save  
 `
 # Todo
-<input type="text">asd 
+<input type="checkbox"> asd 
 # Reference
 https://github.com/WenmuZhou/PAN.pytorch  
 https://github.com/whai362/PSENet
