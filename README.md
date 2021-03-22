@@ -2,8 +2,9 @@
 基本能用的半成品预测代码  
 # Sample
 <P>
-   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/master/samples/mask.png" width="300" height="500" alt="网不好或者图没了"/>
-   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/master/samples/pred.png" width="300" height="500" alt="网不好或者图没了"/>
+   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/predict/example/example/ex1.png" width="300" height="500" alt="网不好或者图没了"/>
+   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/predict/example/example/ex2.png" width="300" height="500" alt="网不好或者图没了"/>
+   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/predict/example/example/ex3.png" width="" height="" alt="网不好或者图没了"/>
  </p>  
  
 # Predict  
@@ -15,6 +16,7 @@
 # Todo  
 * [x] 编号检测  
 * [x] 编号识别  
+* [ ] 按业务要求部署
 # Reference
 https://github.com/WenmuZhou/PAN.pytorch  
 https://github.com/whai362/PSENet
