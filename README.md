@@ -9,7 +9,7 @@
  
 # Predict  
 
-1. [predict.py](https://github.com/kekekahuatian/ContainerNumberDist/blob/master/predict.py)目前只支持单张图片
+1. [predict.py](https://github.com/kekekahuatian/ContainerNumberDist/blob/predict/predict.py)目前只支持单张图片
 2. 修改 `--recModel识别模型路径`、`--decModel检测模型路径`、`--img_path图片路径`、`--alphabets字典路径` 来进行检测  
 `python predict.py --recModel path/to/recModel --decModel path/to/decModel --img_path path/to/img_path --alphabets path/to/alphabets  
 `
