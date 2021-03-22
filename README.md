@@ -2,9 +2,9 @@
 基本能用的半成品预测代码  
 # Sample
 <P>
-   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/predict/example/example/ex1.png" width="300" height="500" alt="网不好或者图没了"/>
-   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/predict/example/example/ex2.png" width="300" height="500" alt="网不好或者图没了"/>
-   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/predict/example/example/ex3.png" width="" height="" alt="网不好或者图没了"/>
+   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/predict/example/ex1.png" width="300" height="500" alt="网不好或者图没了"/>
+   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/predict/example/ex2.png" width="300" height="500" alt="网不好或者图没了"/>
+   <img src="https://github.com/kekekahuatian/ContainerNumberDist/blob/predict/example/ex3.png" width="" height="" alt="网不好或者图没了"/>
  </p>  
  
 # Predict  
